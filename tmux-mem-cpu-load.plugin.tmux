@@ -23,10 +23,10 @@ pushd $CURRENT_DIR #Pushd to the directory where this plugin is located.
 # Attempt to rebuild the plugin and log any errors in the tmux display window.
 if ! output=$(cmake . 2>&1); then tmux run-shell "echo \"'cmake $CURRENT_DIR' failed.
 $output
-\""; else exit 1; fi
+\""; exit 1; fi
 
 if ! output=$(make 2>&1); then tmux run-shell "echo \"tmux-mem-cpu-load failed to build.
 $output
-\""; else exit 1; fi
+\""; exit 1; fi
 
 popd
